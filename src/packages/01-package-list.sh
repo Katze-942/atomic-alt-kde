@@ -86,8 +86,8 @@ NETWORK_PRINT_PACKAGES=(
 
 NVIDIA_LIBRARY=(
   dkms
-  kernel-headers-6-12
-  kernel-headers-modules-6-12
+  kernel-headers-6.12
+  kernel-headers-modules-6.12
   libglvnd-devel
   libnvidia-egl-wayland1
   apt-scripts-nvidia
