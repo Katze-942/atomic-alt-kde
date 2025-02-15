@@ -17,6 +17,7 @@ BASIC_PACKAGES=(
   openssh-server
   iucode_tool
   systemd-ssh-agent
+  wget
 )
 
 # Генератор ZRAM
@@ -83,6 +84,17 @@ NETWORK_PRINT_PACKAGES=(
   wsdd
 )
 
+NVIDIA_LIBRARY=(
+  dkms
+  kernel-headers-6-12
+  kernel-headers-modules-6-12
+  libglvnd-devel
+  libnvidia-egl-wayland1
+  apt-scripts-nvidia
+  nvidia-vaapi-driver
+  libnvidia-egl-gbm1
+)
+
 apt-get install -y \
   "${BASIC_PACKAGES[@]}" \
   "${ZRAM_PACKAGES[@]}" \
@@ -92,6 +104,7 @@ apt-get install -y \
   "${DRIVERS[@]}" \
   "${WAYLAND_QT[@]}" \
   "${AUDIO_PACKAGES[@]}" \
-  "${NETWORK_PRINT_PACKAGES[@]}"
+  "${NETWORK_PRINT_PACKAGES[@]}" \
+  "${NVIDIA_LIBRARY[@]}"
 
 echo "::endgroup::"
