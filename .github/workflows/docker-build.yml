@@ -33,6 +33,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+          tags: ghcr.io/katze-942/${{ github.event.repository.name }}:latest
           platforms: linux/amd64
           build-args: BUILD_TYPE=default
