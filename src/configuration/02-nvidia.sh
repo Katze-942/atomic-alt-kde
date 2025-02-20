@@ -4,7 +4,10 @@ set -e
 
 echo "::group:: ===$(basename "$0")==="
 
-touch /usr/lib/bootc/kargs.d/10-nvidia.toml
-echo "kargs = [\"nvidia_drm.modeset=1\"]" > /usr/lib/bootc/kargs.d/10-nvidia.toml
+wget "https://ru.download.nvidia.com/XFree86/Linux-x86_64/570.86.16/NVIDIA-Linux-x86_64-570.86.16.run"
+chmod +x ./NVIDIA-Linux-x86_64-570.86.16.run
+./NVIDIA-Linux-x86_64-570.86.16.run --ui=none -q --dkms --kernel-source-path=/lib/modules/$(ls /lib/modules/ | tail -n 1)/build
+rm NVIDIA-Linux-x86_64-570.86.16.run
+depmod -a -v "$(ls /lib/modules/ | tail -n 1)"
 
-echo "End kernel_setup.sh"
+echo "End 02-nvidia.sh"
